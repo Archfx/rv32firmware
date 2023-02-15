@@ -1,25 +1,26 @@
 rv32firmware
 ========
 
-This is a simple tutorial based on the sample program provided for [picoRV processor](https://github.com/YosysHQ/picorv32) for beginners.
+This is a simple tutorial based on the sample program provided for [picoRV processors](https://github.com/YosysHQ/picorv32) for beginners.
 
-Find the full post from [here](https://archfx.github.io/posts/2023/02/firmware1/)
+Find the full post [here](https://archfx.github.io/posts/2023/02/firmware1/)](https://archfx.github.io/posts/2023/02/firmware1/)
 
 
 Firmware at Bare metal
 =======
 
-In this tutorial we are going to look at writing a firmware for an embedded harware device. This tutorial is solely focused on simulations and how ever can be used with synthesized hardware designs on FPGA.
+In this tutorial, we are going to look at writing firmware for an embedded hardware device. This tutorial is solely focused on simulations. However, it can be synthesized to work on FPGAs.
 
-We are using following setup,
+We are using the following setups,
 
 1. [picoRV](https://github.com/YosysHQ/picorv32) processor as the hardware 
 2. [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) to compile the firmware
+3. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) for simulation
 
 
-Firmware usually written with c and assembly. Additionaly program need to have a memory map so that the it can map the firmware to correct places to start the boot process properly.
+Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly.
 
-sample c progrm to run on our setup
+sample c program to run on our setup
 ```cpp
 #include "firmware.h"
 void hello(void)
@@ -28,7 +29,8 @@ void hello(void)
 }
 ```
 
-Actually do we need to have a main {  } function here.  Actually where to start in a c code should be ackknowledge to the processor. This should be implemented in assembly language.
+
+Do we need to have a main {  } function here?  Actually where to start in a c code should be acknowledged by the programmer to the processor. This should be implemented in assembly language.
 
 sample assembly code
 ```c
@@ -49,7 +51,7 @@ reset_vec:
 
 ```
 
-Although we have multiple objects like different c programms multiple assembly programms, we need to compile them to a one single program. For that we need to have a linker script.
+Although we have multiple objects like different c programs multiple assembly programs, we need to compile them into one single program. For that, we need to have a linker script.
 
 sample memory map
 ```c
@@ -71,9 +73,9 @@ SECTIONS {
 }
 ```
 
-## Now lets start with the real deal with identifying each step
+## Now let's start with the real deal by identifying each step
 
-clone the full version of the above code from github
+clone the full version of the above code from GitHub
 ```shell
 git clone https://github.com/Archfx/rv32firmware
 ```
@@ -81,14 +83,14 @@ git clone https://github.com/Archfx/rv32firmware
 Setting up the toolchain
 -------
 
-Instead of setting up the tool chain in your local mashine you can use the following docker container and mounting the firmware src to it
+Instead of setting up the toolchain in your local machine you can use the following docker container and mount the firmware directory to it
 
 ```shell
 docker pull archfx/rv32i
 docker run -t -p 6080:6080 -v "${PWD}/:/rv32firmware" -w /rv32firmware --name rv32i archfx/rv32i
 ```
 
-This will get you to a docker continer with the toolchain. Now all we got to do is the compile the firmware
+This will get you to a docker container with the toolchain. Now all we got to do is compile the firmware
 
 Compiling the Code
 -------
@@ -105,18 +107,18 @@ producing the output file
 /opt/riscv32i/bin/riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
 ```
 
-3. Using the linker to link with the machine code to single program
+3. Using the linker to link with the machine code to a single program
 ```shell
 /opt/riscv32i/bin/riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o irq.o print.o hello.o sieve.o stats.o -lgcc
 ```
 
-4. Generate the binary from elf
+4. Generate the binary from .elf
 ```shell
 /opt/riscv32i/bin/riscv32-unknown-elf-objcopy firmware.elf -O binary firmware.bin
 ```
 
-Now outside the docker container we can analys the binary file
-5. Get the hex for analyse
+Now outside the docker container, we can have to generate the binary file
+5. Generate the binary file
 ```shell
 python makehex.py firmware.bin 920 firmware.hex
 ```
@@ -125,15 +127,15 @@ python makehex.py firmware.bin 920 firmware.hex
 Simulating the Firmware in picoRV
 ---------
 
-Here comes the fun part. Now we have the compiled firmware which can be run on the actual hardware. Instead we are going to simulate the firmware on the hardware implementation as an simulation. For this we are using iverilog simulator. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) is a opensource compiled simulator, therefore this process involves in two simple steps. First we need to compile the hardware design combined with the firmware. 
+Here comes the fun part. Now we have the compiled firmware which can be run on the actual hardware. Instead, we are going to simulate the firmware on the hardware implementation as a simulation. For this, we are using Iverilog simulator. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) is an open-source compiled simulator, therefore this process involves two simple steps. First, we need to compile the hardware design combined with the firmware. Then run the compiled simulation. 
 
-First we need to put the firmware in to the design for that we need to modify the design. For that will modify the test bench
 
+1. Let's connect the firmware to the hardware implementation. For that will modify the test bench
 ```shell
 cd hw
 nano testbench.v
 ```
-and find the following lines in the test bench. Modify the firmware file location to the correct firmware that you just compiled.
+and find the following lines on the test bench. Modify the firmware file location to the correct firmware that you just compiled.
 
 ```verilog
 	reg [1023:0] firmware_file;
@@ -144,12 +146,12 @@ and find the following lines in the test bench. Modify the firmware file locatio
 	end
 ```
 
-Now lets simulate. First we compile the design
+2. Now let's simulate. First, we compile the design
 ```shell
  iverilog testbench.v picorv32.v  -o picorv.vvp
 ```
 
-Run the simulation
+3. Finally, run the simulation
 ```shell
 vvp picorv.vvp +vcd +trace
 ```
@@ -173,4 +175,4 @@ testbench.v:51: $finish called at 83240000 (1ps)
 
 You can observe the internal signal patterns by looking at the testbench.trace and testbench.vcd files.
 
-In the next post let us look at the firmware in detailed manner. 
+In the next post let us look at how to write firmware in a detailed manner. 
