@@ -379,15 +379,15 @@ start:
 
 	/* running tests from riscv-tests */
 
-#ifdef ENABLE_RVTST
-#  define TEST(n) \
-	.global n; \
-	addi x1, zero, 1000; \
-	picorv32_timer_insn(zero, x1); \
-	jal zero,n; \
-	.global n ## _ret; \
-	n ## _ret:
-#else
+# #ifdef ENABLE_RVTST
+# #  define TEST(n) \
+# 	.global n; \
+# 	addi x1, zero, 1000; \
+# 	picorv32_timer_insn(zero, x1); \
+# 	jal zero,n; \
+# 	.global n ## _ret; \
+# 	n ## _ret:
+# #else
 
 
 	/* set stack pointer */
