@@ -3,8 +3,7 @@ rv32firmware
 
 This is a simple tutorial based on the sample program provided for [picoRV processors](https://github.com/YosysHQ/picorv32) for beginners.
 
-Find the full post [here](https://archfx.github.io/posts/2023/02/firmware1/)](https://archfx.github.io/posts/2023/02/firmware1/)
-
+Find the full post [here](https://archfx.github.io/posts/2023/02/firmware1/)
 
 Firmware at Bare metal
 =======
