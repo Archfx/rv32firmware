@@ -1,0 +1,93 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+                              print.o (__udivsi3)
+
+Discarded input sections
+
+ .debug_line    0x0000000000000000      0x153 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_line_str
+                0x0000000000000000       0x8d /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_info    0x0000000000000000       0x59 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_abbrev  0x0000000000000000       0x21 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_str     0x0000000000000000       0xd2 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+mem              0x0000000000000000 0x0000000000018000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.memory         0x0000000000000000      0xaec
+                0x0000000000000000                . = 0x0
+ start*(.text)
+ .text          0x0000000000000000      0x45c start.o
+ *(.text)
+ .text          0x000000000000045c        0x0 tiny.o
+ .text          0x000000000000045c      0x2f8 irq.o
+                0x000000000000045c                irq
+ .text          0x0000000000000754       0x8c print.o
+                0x0000000000000754                print_chr
+                0x000000000000075c                print_str
+                0x000000000000076e                print_dec
+                0x00000000000007ba                print_hex
+ *fill*         0x00000000000007e0        0x0 
+ .text          0x00000000000007e0       0xb4 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+                0x00000000000007e0                __divsi3
+                0x00000000000007e8                __hidden___udivsi3
+                0x00000000000007e8                __udivsi3
+                0x0000000000000830                __umodsi3
+                0x0000000000000864                __modsi3
+ *(*)
+ .data          0x0000000000000894        0x0 start.o
+ .bss           0x0000000000000894        0x0 start.o
+ .riscv.attributes
+                0x0000000000000894       0x1f start.o
+ .data          0x00000000000008b3        0x0 tiny.o
+ .bss           0x00000000000008b3        0x0 tiny.o
+ *fill*         0x00000000000008b3        0x1 
+ .rodata.str1.4
+                0x00000000000008b4        0xd tiny.o
+ *fill*         0x00000000000008c1        0x1 
+ .text.startup  0x00000000000008c2        0x8 tiny.o
+                0x00000000000008c2                main
+ .comment       0x00000000000008ca       0x1b tiny.o
+                                         0x1c (size before relaxing)
+ .riscv.attributes
+                0x00000000000008e5       0x21 tiny.o
+ .data          0x0000000000000906        0x0 irq.o
+ .bss           0x0000000000000906        0x0 irq.o
+ *fill*         0x0000000000000906        0x2 
+ .rodata.str1.4
+                0x0000000000000908      0x167 irq.o
+                                        0x16b (size before relaxing)
+ *fill*         0x0000000000000a6f        0x1 
+ .sbss          0x0000000000000a70        0xc irq.o
+ .comment       0x0000000000000a7c       0x1c irq.o
+ .riscv.attributes
+                0x0000000000000a7c       0x21 irq.o
+ .data          0x0000000000000a9d        0x0 print.o
+ .bss           0x0000000000000a9d        0x0 print.o
+ *fill*         0x0000000000000a9d        0x3 
+ .rodata.str1.4
+                0x0000000000000aa0       0x11 print.o
+ .comment       0x0000000000000ab1       0x1c print.o
+ .riscv.attributes
+                0x0000000000000ab1       0x21 print.o
+ .data          0x0000000000000ad2        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .bss           0x0000000000000ad2        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .riscv.attributes
+                0x0000000000000ad2       0x1a /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+                0x0000000000000aec                end = .
+                0x0000000000000aec                . = ALIGN (0x4)
+LOAD start.o
+LOAD tiny.o
+LOAD irq.o
+LOAD print.o
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
+OUTPUT(hello.elf elf32-littleriscv)
