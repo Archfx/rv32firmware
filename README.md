@@ -74,9 +74,10 @@ SECTIONS {
 
 ## Now let's start with the real deal by identifying each step
 
-clone the full version of the above code from GitHub
+clone the full version of the above code from GitHub. Contents related to this tutorial is available in folder **overview** of the repository
 ```shell
 git clone https://github.com/Archfx/rv32firmware
+cd rv32firmware/overview
 ```
 
 Setting up the toolchain
