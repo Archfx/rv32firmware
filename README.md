@@ -75,7 +75,7 @@ SECTIONS {
 
 clone the full version of the above code from github
 ```shell
-git clone archfx/rv32firmware
+git clone https://github.com/Archfx/rv32firmware
 ```
 
 Setting up the toolchain
