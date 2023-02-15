@@ -1,9 +1,9 @@
 rv32firmware
 ========
 
-This is a simple tutorial based on the sample program provided for picoRV processor at  https://github.com/YosysHQ/picorv32 for beginners.
+This is a simple tutorial based on the sample program provided for [picoRV processor](https://github.com/YosysHQ/picorv32) for beginners.
 
-Find the full post at https://archfx.github.io/posts/2023/02/firmware1/
+Find the full post from [here](https://archfx.github.io/posts/2023/02/firmware1/)
 
 
 Firmware at Bare metal
@@ -125,7 +125,7 @@ python makehex.py firmware.bin 920 firmware.hex
 Simulating the Firmware in picoRV
 ---------
 
-Here comes the fun part. Now we have the compiled firmware which can be run on the actual hardware. Instead we are going to simulate the firmware on the hardware implementation as an simulation. For this we are using iverilog simulator. (Iverilog)[https://iverilog.fandom.com/wiki/Main_Page] is a opensource compiled simulator, therefore this process involves in two simple steps. First we need to compile the hardware design combined with the firmware. 
+Here comes the fun part. Now we have the compiled firmware which can be run on the actual hardware. Instead we are going to simulate the firmware on the hardware implementation as an simulation. For this we are using iverilog simulator. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) is a opensource compiled simulator, therefore this process involves in two simple steps. First we need to compile the hardware design combined with the firmware. 
 
 First we need to put the firmware in to the design for that we need to modify the design. For that will modify the test bench
 
