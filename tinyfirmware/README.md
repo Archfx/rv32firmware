@@ -1,4 +1,4 @@
-DIY simple firmware
+DIY Simple Firmware
 ==========
 
 In the previous article, we looked at the different steps involved in the process of compiling firmware that is ready to run on actual hardware. For that, we have used the default firmware given in the [picoRV](https://github.com/YosysHQ/picorv32) repo. In this article, we write a very simple program from scratch to run on the picoRV processor.
@@ -17,7 +17,6 @@ reset_vec:
 	picorv32_waitirq_insn(zero)
 	picorv32_maskirq_insn(zero, zero)
 	j start
-...
 
 /* Main program
  **********************************/
@@ -51,7 +50,7 @@ This will jump the code into our main() method.
 Hello World on picoRV
 ------
 
-Let's write a tiny program to print "hello world". Print hello world means we write the corresponding character values to the internal registers of the processor. For this, we need to select a output register port and from the string write one character at a time. The example c code will look like below.
+Let's write a tiny program to print "hello world". Print hello world means we write the corresponding character values to the internal registers of the processor. For this, we need to select an output register port and from the string write one character at a time. The example c code will look like below.
 
 ```c
 #include <stdint.h>
@@ -59,15 +58,12 @@ Let's write a tiny program to print "hello world". Print hello world means we wr
 
 #define OUTPORT 0x10000000
 
-// irq.c
-uint32_t *irq(uint32_t *regs, uint32_t irqs);
-
-
 void print_str(const char *p)
 {
 	while (*p != 0)
 		*((volatile uint32_t*)OUTPORT) = *(p++);
 }
+
 
 void main(void)
 {
@@ -85,11 +81,11 @@ cd rv32firmware/overview
 Now let's compile the code to get the binary. Detailed description about compiling the code is available [here](https://archfx.github.io/posts/2023/02/firmware1/)
 
 ```shell
-$ riscv32-unknown-elf-gcc tiny.c irq.c print.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
+$ riscv32-unknown-elf-gcc tiny.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
 
 $ riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
 
-$ riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o hello.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,hello.map,--strip-debug start.o tiny.o irq.o print.o -lgcc
+$ riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o hello.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,hello.map,--strip-debug start.o tiny.o -lgcc
 
 $ riscv32-unknown-elf-objcopy hello.elf -O binary firmware.bin
 ```
