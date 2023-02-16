@@ -1,10 +1,91 @@
 Archive member included to satisfy reference by file (symbol)
 
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+                              multest.o (__divdi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+                              multest.o (__moddi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+                              multest.o (__udivdi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+                              multest.o (__umoddi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+                              multest.o (__mulsi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+                              multest.o (__muldi3)
 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
                               print.o (__udivsi3)
+/opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+                              /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o) (__clz_tab)
 
 Discarded input sections
 
+ .debug_info    0x0000000000000000      0x972 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_abbrev  0x0000000000000000      0x1de /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_loclists
+                0x0000000000000000      0x972 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_rnglists
+                0x0000000000000000      0x112 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_line    0x0000000000000000      0x822 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_str     0x0000000000000000      0x26f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_line_str
+                0x0000000000000000      0x11c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .debug_info    0x0000000000000000      0x9ba /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_abbrev  0x0000000000000000      0x1e0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_loclists
+                0x0000000000000000      0x8f0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_rnglists
+                0x0000000000000000       0xda /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_line    0x0000000000000000      0x87c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_str     0x0000000000000000      0x26f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_line_str
+                0x0000000000000000      0x11c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .debug_info    0x0000000000000000      0x940 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x0000000000000000      0x1c5 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_loclists
+                0x0000000000000000      0xad5 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_rnglists
+                0x0000000000000000      0x12d /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_line    0x0000000000000000      0x75f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_str     0x0000000000000000      0x270 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_line_str
+                0x0000000000000000      0x11c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000000000      0x950 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x0000000000000000      0x1e1 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_loclists
+                0x0000000000000000      0x8e9 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_rnglists
+                0x0000000000000000       0xe3 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_line    0x0000000000000000      0x78f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_str     0x0000000000000000      0x270 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_line_str
+                0x0000000000000000      0x11c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .debug_line    0x0000000000000000       0x7a /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_line_str
+                0x0000000000000000       0x90 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_info    0x0000000000000000       0x2f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_abbrev  0x0000000000000000       0x21 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_str     0x0000000000000000       0xa5 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .debug_info    0x0000000000000000      0x231 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_abbrev  0x0000000000000000      0x119 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_loclists
+                0x0000000000000000      0x140 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_line    0x0000000000000000      0x220 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_str     0x0000000000000000      0x20e /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_line_str
+                0x0000000000000000      0x159 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .debug_frame   0x0000000000000000       0x2c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
  .debug_line    0x0000000000000000      0x153 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
  .debug_line_str
                 0x0000000000000000       0x8d /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
@@ -13,6 +94,14 @@ Discarded input sections
  .debug_aranges
                 0x0000000000000000       0x20 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
  .debug_str     0x0000000000000000       0xd2 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .debug_info    0x0000000000000000       0xd8 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000000000       0x70 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .debug_aranges
+                0x0000000000000000       0x18 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .debug_line    0x0000000000000000       0x3f /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .debug_str     0x0000000000000000      0x194 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .debug_line_str
+                0x0000000000000000      0x11c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
 
 Memory Configuration
 
@@ -23,93 +112,597 @@ mem              0x0000000000000000 0x0000000000018000
 Linker script and memory map
 
 
-.memory         0x0000000000000000      0xe54
+.memory         0x0000000000000000     0xe080
                 0x0000000000000000                . = 0x0
  start*(.text)
- .text          0x0000000000000000      0x46c start.o
+ .text          0x0000000000000000      0x6bc start.o
+                0x0000000000000424                lui_ret
+                0x0000000000000430                auipc_ret
+                0x000000000000043c                j_ret
+                0x0000000000000448                jal_ret
+                0x0000000000000454                jalr_ret
+                0x0000000000000460                beq_ret
+                0x000000000000046c                bne_ret
+                0x0000000000000478                blt_ret
+                0x0000000000000484                bge_ret
+                0x0000000000000490                bltu_ret
+                0x000000000000049c                bgeu_ret
+                0x00000000000004a8                lb_ret
+                0x00000000000004b4                lh_ret
+                0x00000000000004c0                lw_ret
+                0x00000000000004cc                lbu_ret
+                0x00000000000004d8                lhu_ret
+                0x00000000000004e4                sb_ret
+                0x00000000000004f0                sh_ret
+                0x00000000000004fc                sw_ret
+                0x0000000000000508                addi_ret
+                0x0000000000000514                slti_ret
+                0x0000000000000520                xori_ret
+                0x000000000000052c                ori_ret
+                0x0000000000000538                andi_ret
+                0x0000000000000544                slli_ret
+                0x0000000000000550                srli_ret
+                0x000000000000055c                srai_ret
+                0x0000000000000568                add_ret
+                0x0000000000000574                sub_ret
+                0x0000000000000580                sll_ret
+                0x000000000000058c                slt_ret
+                0x0000000000000598                xor_ret
+                0x00000000000005a4                srl_ret
+                0x00000000000005b0                sra_ret
+                0x00000000000005bc                or_ret
+                0x00000000000005c8                and_ret
+                0x00000000000005d4                mulh_ret
+                0x00000000000005e0                mulhsu_ret
+                0x00000000000005ec                mulhu_ret
+                0x00000000000005f8                mul_ret
+                0x0000000000000604                div_ret
+                0x0000000000000610                divu_ret
+                0x000000000000061c                rem_ret
+                0x0000000000000628                remu_ret
+                0x0000000000000634                simple_ret
+                0x000000000000067e                hard_mul
+                0x0000000000000684                hard_mulh
+                0x000000000000068a                hard_mulhsu
+                0x0000000000000690                hard_mulhu
+                0x0000000000000696                hard_div
+                0x000000000000069c                hard_divu
+                0x00000000000006a2                hard_rem
+                0x00000000000006a8                hard_remu
+ *fill*         0x00000000000006bc        0x4 
+ .text          0x00000000000006c0      0x6c4 start.o
  *(.text)
- .text          0x000000000000046c      0x2f8 irq.o
-                0x000000000000046c                irq
- .text          0x0000000000000764       0x8c print.o
-                0x0000000000000764                print_chr
-                0x000000000000076c                print_str
-                0x000000000000077e                print_dec
-                0x00000000000007ca                print_hex
- .text          0x00000000000007f0        0x8 hello.o
-                0x00000000000007f0                hello
- .text          0x00000000000007f8      0x184 sieve.o
-                0x0000000000000896                sieve
- .text          0x000000000000097c      0x106 stats.o
-                0x0000000000000a0a                stats
- *fill*         0x0000000000000a82        0x2 
- .text          0x0000000000000a84       0xb4 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
-                0x0000000000000a84                __divsi3
-                0x0000000000000a8c                __hidden___udivsi3
-                0x0000000000000a8c                __udivsi3
-                0x0000000000000ad4                __umodsi3
-                0x0000000000000b08                __modsi3
+ .text          0x0000000000000d84      0x2f8 irq.o
+                0x0000000000000d84                irq
+ .text          0x000000000000107c       0x90 print.o
+                0x000000000000107c                print_chr
+                0x0000000000001084                print_str
+                0x0000000000001096                print_dec
+                0x00000000000010e6                print_hex
+ .text          0x000000000000110c        0x8 hello.o
+                0x000000000000110c                hello
+ .text          0x0000000000001114      0x186 sieve.o
+                0x00000000000011b4                sieve
+ .text          0x000000000000129a      0x110 stats.o
+                0x000000000000132c                stats
+ .text          0x00000000000013aa      0x2e4 multest.o
+                0x00000000000013c8                multest
+ *fill*         0x000000000000168e        0x2 
+ .text          0x0000000000001690      0x564 add.o
+                0x0000000000001690                mytest
+ .text          0x0000000000001bf4      0x30c addi.o
+ .text          0x0000000000001f00      0x53c and.o
+ .text          0x000000000000243c      0x244 andi.o
+ *fill*         0x0000000000002680        0x0 
+ .text          0x0000000000002680       0xcc auipc.o
+ .text          0x000000000000274c      0x344 beq.o
+ .text          0x0000000000002a90      0x3a4 bge.o
+ .text          0x0000000000002e34      0x3d8 bgeu.o
+ .text          0x000000000000320c      0x344 blt.o
+ .text          0x0000000000003550      0x378 bltu.o
+ .text          0x00000000000038c8      0x348 bne.o
+ .text          0x0000000000003c10      0x160 div.o
+ .text          0x0000000000003d70      0x164 divu.o
+ .text          0x0000000000003ed4        0xa hello.o
+ .text          0x0000000000003ede      0x35e irq.o
+ .text          0x000000000000423c       0xc0 j.o
+ .text          0x00000000000042fc       0xdc jal.o
+ .text          0x00000000000043d8      0x184 jalr.o
+ .text          0x000000000000455c      0x2d0 lb.o
+ .text          0x000000000000482c      0x2d0 lbu.o
+ .text          0x0000000000004afc      0x2f0 lh.o
+ .text          0x0000000000004dec      0x304 lhu.o
+ .text          0x00000000000050f0       0xe4 lui.o
+ .text          0x00000000000051d4      0x310 lw.o
+ .text          0x00000000000054e4      0x54c mul.o
+ .text          0x0000000000005a30      0x54c mulh.o
+ .text          0x0000000000005f7c      0x54c mulhsu.o
+ .text          0x00000000000064c8      0x54c mulhu.o
+ .text          0x0000000000006a14      0x348 multest.o
+ *fill*         0x0000000000006d5c        0x0 
+ .text          0x0000000000006d5c      0x548 or.o
+ .text          0x00000000000072a4      0x260 ori.o
+ .text          0x0000000000007504       0x90 print.o
+ *fill*         0x0000000000007594        0x0 
+ .text          0x0000000000007594      0x160 rem.o
+ .text          0x00000000000076f4      0x160 remu.o
+ .text          0x0000000000007854      0x478 sb.o
+ .text          0x0000000000007ccc      0x4fc sh.o
+ .text          0x00000000000081c8      0x19c sieve.o
+ *fill*         0x0000000000008364        0x0 
+ .text          0x0000000000008364       0x54 simple.o
+ .text          0x00000000000083b8      0x5f0 sll.o
+ .text          0x00000000000089a8      0x308 slli.o
+ .text          0x0000000000008cb0      0x54c slt.o
+ .text          0x00000000000091fc      0x2f8 slti.o
+ .text          0x00000000000094f4      0x620 sra.o
+ .text          0x0000000000009b14      0x33c srai.o
+ .text          0x0000000000009e50      0x640 srl.o
+ .text          0x000000000000a490      0x338 srli.o
+ .text          0x000000000000a7c8      0x11c stats.o
+ *fill*         0x000000000000a8e4        0x0 
+ .text          0x000000000000a8e4      0x544 sub.o
+ .text          0x000000000000ae28      0x508 sw.o
+ .text          0x000000000000b330      0x544 xor.o
+ .text          0x000000000000b874      0x268 xori.o
+ .text          0x000000000000badc      0x61c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+                0x000000000000badc                __divdi3
+ .text          0x000000000000c0f8      0x588 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+                0x000000000000c0f8                __moddi3
+ .text          0x000000000000c680      0x5c4 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+                0x000000000000c680                __udivdi3
+ .text          0x000000000000cc44      0x4d0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+                0x000000000000cc44                __umoddi3
+ .text          0x000000000000d114       0x24 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+                0x000000000000d114                __mulsi3
+ .text          0x000000000000d138       0x8c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+                0x000000000000d138                __muldi3
+ .text          0x000000000000d1c4       0xb4 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+                0x000000000000d1c4                __divsi3
+                0x000000000000d1cc                __hidden___udivsi3
+                0x000000000000d1cc                __udivsi3
+                0x000000000000d214                __umodsi3
+                0x000000000000d248                __modsi3
+ .text          0x000000000000d278        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
  *(*)
- .data          0x0000000000000b38        0x0 start.o
- .bss           0x0000000000000b38        0x0 start.o
+ .data          0x000000000000d278        0x0 start.o
+ .bss           0x000000000000d278        0x0 start.o
  .riscv.attributes
-                0x0000000000000b38       0x1f start.o
- .data          0x0000000000000b57        0x0 irq.o
- .bss           0x0000000000000b57        0x0 irq.o
- *fill*         0x0000000000000b57        0x1 
+                0x000000000000d278       0x24 start.o
+ .rela.text     0x000000000000d29c        0x0 start.o
+ .data          0x000000000000d29c        0x0 irq.o
+ .bss           0x000000000000d29c        0x0 irq.o
  .rodata.str1.4
-                0x0000000000000b58      0x167 irq.o
+                0x000000000000d29c      0x167 irq.o
                                         0x16b (size before relaxing)
- *fill*         0x0000000000000cbf        0x1 
- .sbss          0x0000000000000cc0        0xc irq.o
- .comment       0x0000000000000ccc       0x1b irq.o
+ *fill*         0x000000000000d403        0x1 
+ .sbss          0x000000000000d404        0xc irq.o
+ .comment       0x000000000000d410       0x1b irq.o
                                          0x1c (size before relaxing)
  .riscv.attributes
-                0x0000000000000ce7       0x21 irq.o
- .data          0x0000000000000d08        0x0 print.o
- .bss           0x0000000000000d08        0x0 print.o
+                0x000000000000d42b       0x21 irq.o
+ .data          0x000000000000d44c        0x0 print.o
+ .bss           0x000000000000d44c        0x0 print.o
  .rodata.str1.4
-                0x0000000000000d08       0x11 print.o
- .comment       0x0000000000000d19       0x1c print.o
+                0x000000000000d44c       0x11 print.o
+ .comment       0x000000000000d45d       0x1c print.o
  .riscv.attributes
-                0x0000000000000d19       0x21 print.o
- .data          0x0000000000000d3a        0x0 hello.o
- .bss           0x0000000000000d3a        0x0 hello.o
- *fill*         0x0000000000000d3a        0x2 
+                0x000000000000d45d       0x21 print.o
+ .data          0x000000000000d47e        0x0 hello.o
+ .bss           0x000000000000d47e        0x0 hello.o
+ *fill*         0x000000000000d47e        0x2 
  .rodata.str1.4
-                0x0000000000000d3c        0xd hello.o
- .comment       0x0000000000000d49       0x1c hello.o
+                0x000000000000d480        0xd hello.o
+ .comment       0x000000000000d48d       0x1c hello.o
  .riscv.attributes
-                0x0000000000000d49       0x21 hello.o
- .data          0x0000000000000d6a        0x0 sieve.o
- .bss           0x0000000000000d6a        0x0 sieve.o
- *fill*         0x0000000000000d6a        0x2 
+                0x000000000000d48d       0x21 hello.o
+ .data          0x000000000000d4ae        0x0 sieve.o
+ .bss           0x000000000000d4ae        0x0 sieve.o
+ *fill*         0x000000000000d4ae        0x2 
  .rodata.str1.4
-                0x0000000000000d6c       0x40 sieve.o
- .sbss          0x0000000000000dac        0xc sieve.o
- .comment       0x0000000000000db8       0x1c sieve.o
+                0x000000000000d4b0       0x40 sieve.o
+ .sbss          0x000000000000d4f0        0xc sieve.o
+ .comment       0x000000000000d4fc       0x1c sieve.o
  .riscv.attributes
-                0x0000000000000db8       0x21 sieve.o
- .data          0x0000000000000dd9        0x0 stats.o
- .bss           0x0000000000000dd9        0x0 stats.o
- *fill*         0x0000000000000dd9        0x3 
+                0x000000000000d4fc       0x21 sieve.o
+ .data          0x000000000000d51d        0x0 stats.o
+ .bss           0x000000000000d51d        0x0 stats.o
+ *fill*         0x000000000000d51d        0x3 
  .rodata.str1.4
-                0x0000000000000ddc       0x3a stats.o
+                0x000000000000d520       0x3a stats.o
                                          0x3e (size before relaxing)
- .comment       0x0000000000000e16       0x1c stats.o
+ .comment       0x000000000000d55a       0x1c stats.o
  .riscv.attributes
-                0x0000000000000e16       0x21 stats.o
- .data          0x0000000000000e37        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
- .bss           0x0000000000000e37        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+                0x000000000000d55a       0x21 stats.o
+ .data          0x000000000000d57b        0x0 multest.o
+ .bss           0x000000000000d57b        0x0 multest.o
+ *fill*         0x000000000000d57b        0x1 
+ .rodata.str1.4
+                0x000000000000d57c       0x50 multest.o
+                                         0x58 (size before relaxing)
+ .sdata         0x000000000000d5cc        0x4 multest.o
+ .comment       0x000000000000d5d0       0x1c multest.o
  .riscv.attributes
-                0x0000000000000e37       0x1a /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
-                0x0000000000000e51                end = .
-                0x0000000000000e54                . = ALIGN (0x4)
- *fill*         0x0000000000000e51        0x3 
+                0x000000000000d5d0       0x21 multest.o
+ *fill*         0x000000000000d5f1        0x3 
+ .data          0x000000000000d5f4        0x0 add.o
+ .bss           0x000000000000d5f4        0x0 add.o
+ .riscv.attributes
+                0x000000000000d5f4       0x1f add.o
+ *fill*         0x000000000000d613        0x1 
+ .data          0x000000000000d614        0x0 addi.o
+ .bss           0x000000000000d614        0x0 addi.o
+ .riscv.attributes
+                0x000000000000d614       0x1f addi.o
+ *fill*         0x000000000000d633        0x1 
+ .data          0x000000000000d634        0x0 and.o
+ .bss           0x000000000000d634        0x0 and.o
+ .riscv.attributes
+                0x000000000000d634       0x1f and.o
+ *fill*         0x000000000000d653        0x1 
+ .data          0x000000000000d654        0x0 andi.o
+ .bss           0x000000000000d654        0x0 andi.o
+ .riscv.attributes
+                0x000000000000d654       0x1f andi.o
+ *fill*         0x000000000000d673        0x1 
+ .data          0x000000000000d674        0x0 auipc.o
+ .bss           0x000000000000d674        0x0 auipc.o
+ .riscv.attributes
+                0x000000000000d674       0x1f auipc.o
+ *fill*         0x000000000000d693        0x1 
+ .data          0x000000000000d694        0x0 beq.o
+ .bss           0x000000000000d694        0x0 beq.o
+ .riscv.attributes
+                0x000000000000d694       0x1f beq.o
+ *fill*         0x000000000000d6b3        0x1 
+ .data          0x000000000000d6b4        0x0 bge.o
+ .bss           0x000000000000d6b4        0x0 bge.o
+ .riscv.attributes
+                0x000000000000d6b4       0x1f bge.o
+ *fill*         0x000000000000d6d3        0x1 
+ .data          0x000000000000d6d4        0x0 bgeu.o
+ .bss           0x000000000000d6d4        0x0 bgeu.o
+ .riscv.attributes
+                0x000000000000d6d4       0x1f bgeu.o
+ *fill*         0x000000000000d6f3        0x1 
+ .data          0x000000000000d6f4        0x0 blt.o
+ .bss           0x000000000000d6f4        0x0 blt.o
+ .riscv.attributes
+                0x000000000000d6f4       0x1f blt.o
+ *fill*         0x000000000000d713        0x1 
+ .data          0x000000000000d714        0x0 bltu.o
+ .bss           0x000000000000d714        0x0 bltu.o
+ .riscv.attributes
+                0x000000000000d714       0x1f bltu.o
+ *fill*         0x000000000000d733        0x1 
+ .data          0x000000000000d734        0x0 bne.o
+ .bss           0x000000000000d734        0x0 bne.o
+ .riscv.attributes
+                0x000000000000d734       0x1f bne.o
+ *fill*         0x000000000000d753        0x1 
+ .data          0x000000000000d754        0x0 div.o
+ .bss           0x000000000000d754        0x0 div.o
+ .riscv.attributes
+                0x000000000000d754       0x1f div.o
+ *fill*         0x000000000000d773        0x1 
+ .data          0x000000000000d774        0x0 divu.o
+ .bss           0x000000000000d774        0x0 divu.o
+ .riscv.attributes
+                0x000000000000d774       0x1f divu.o
+ .data          0x000000000000d793        0x0 hello.o
+ .bss           0x000000000000d793        0x0 hello.o
+ .rodata.str1.4
+                0x000000000000d793        0xd hello.o
+ .comment       0x000000000000d793       0x1c hello.o
+ .riscv.attributes
+                0x000000000000d793       0x21 hello.o
+ .data          0x000000000000d7b4        0x0 irq.o
+ .bss           0x000000000000d7b4        0x0 irq.o
+ .rodata.str1.4
+                0x000000000000d7b4      0x16b irq.o
+ .sbss          0x000000000000d7b4        0xc irq.o
+ .comment       0x000000000000d7c0       0x1c irq.o
+ .riscv.attributes
+                0x000000000000d7c0       0x21 irq.o
+ *fill*         0x000000000000d7e1        0x3 
+ .data          0x000000000000d7e4        0x0 j.o
+ .bss           0x000000000000d7e4        0x0 j.o
+ .riscv.attributes
+                0x000000000000d7e4       0x1f j.o
+ *fill*         0x000000000000d803        0x1 
+ .data          0x000000000000d804        0x0 jal.o
+ .bss           0x000000000000d804        0x0 jal.o
+ .riscv.attributes
+                0x000000000000d804       0x1f jal.o
+ *fill*         0x000000000000d823        0x1 
+ .data          0x000000000000d824        0x0 jalr.o
+ .bss           0x000000000000d824        0x0 jalr.o
+ .riscv.attributes
+                0x000000000000d824       0x1f jalr.o
+ *fill*         0x000000000000d843        0x1 
+ .data          0x000000000000d844        0x4 lb.o
+ .bss           0x000000000000d848        0x0 lb.o
+ .riscv.attributes
+                0x000000000000d848       0x1f lb.o
+ *fill*         0x000000000000d867        0x1 
+ .data          0x000000000000d868        0x4 lbu.o
+ .bss           0x000000000000d86c        0x0 lbu.o
+ .riscv.attributes
+                0x000000000000d86c       0x1f lbu.o
+ *fill*         0x000000000000d88b        0x1 
+ .data          0x000000000000d88c        0x8 lh.o
+ .bss           0x000000000000d894        0x0 lh.o
+ .riscv.attributes
+                0x000000000000d894       0x1f lh.o
+ *fill*         0x000000000000d8b3        0x1 
+ .data          0x000000000000d8b4        0x8 lhu.o
+ .bss           0x000000000000d8bc        0x0 lhu.o
+ .riscv.attributes
+                0x000000000000d8bc       0x1f lhu.o
+ *fill*         0x000000000000d8db        0x1 
+ .data          0x000000000000d8dc        0x0 lui.o
+ .bss           0x000000000000d8dc        0x0 lui.o
+ .riscv.attributes
+                0x000000000000d8dc       0x1f lui.o
+ *fill*         0x000000000000d8fb        0x1 
+ .data          0x000000000000d8fc       0x10 lw.o
+ .bss           0x000000000000d90c        0x0 lw.o
+ .riscv.attributes
+                0x000000000000d90c       0x1f lw.o
+ *fill*         0x000000000000d92b        0x1 
+ .data          0x000000000000d92c        0x0 mul.o
+ .bss           0x000000000000d92c        0x0 mul.o
+ .riscv.attributes
+                0x000000000000d92c       0x1f mul.o
+ *fill*         0x000000000000d94b        0x1 
+ .data          0x000000000000d94c        0x0 mulh.o
+ .bss           0x000000000000d94c        0x0 mulh.o
+ .riscv.attributes
+                0x000000000000d94c       0x1f mulh.o
+ *fill*         0x000000000000d96b        0x1 
+ .data          0x000000000000d96c        0x0 mulhsu.o
+ .bss           0x000000000000d96c        0x0 mulhsu.o
+ .riscv.attributes
+                0x000000000000d96c       0x1f mulhsu.o
+ *fill*         0x000000000000d98b        0x1 
+ .data          0x000000000000d98c        0x0 mulhu.o
+ .bss           0x000000000000d98c        0x0 mulhu.o
+ .riscv.attributes
+                0x000000000000d98c       0x1f mulhu.o
+ .data          0x000000000000d9ab        0x0 multest.o
+ .bss           0x000000000000d9ab        0x0 multest.o
+ .rodata.str1.4
+                0x000000000000d9ab       0x58 multest.o
+ *fill*         0x000000000000d9ab        0x1 
+ .sdata         0x000000000000d9ac        0x4 multest.o
+ .comment       0x000000000000d9b0       0x1c multest.o
+ .riscv.attributes
+                0x000000000000d9b0       0x21 multest.o
+ *fill*         0x000000000000d9d1        0x3 
+ .data          0x000000000000d9d4        0x0 or.o
+ .bss           0x000000000000d9d4        0x0 or.o
+ .riscv.attributes
+                0x000000000000d9d4       0x1f or.o
+ *fill*         0x000000000000d9f3        0x1 
+ .data          0x000000000000d9f4        0x0 ori.o
+ .bss           0x000000000000d9f4        0x0 ori.o
+ .riscv.attributes
+                0x000000000000d9f4       0x1f ori.o
+ .data          0x000000000000da13        0x0 print.o
+ .bss           0x000000000000da13        0x0 print.o
+ .rodata.str1.4
+                0x000000000000da13       0x11 print.o
+ .comment       0x000000000000da13       0x1c print.o
+ .riscv.attributes
+                0x000000000000da13       0x21 print.o
+ .data          0x000000000000da34        0x0 rem.o
+ .bss           0x000000000000da34        0x0 rem.o
+ .riscv.attributes
+                0x000000000000da34       0x1f rem.o
+ *fill*         0x000000000000da53        0x1 
+ .data          0x000000000000da54        0x0 remu.o
+ .bss           0x000000000000da54        0x0 remu.o
+ .riscv.attributes
+                0x000000000000da54       0x1f remu.o
+ *fill*         0x000000000000da73        0x1 
+ .data          0x000000000000da74        0xa sb.o
+ .bss           0x000000000000da7e        0x0 sb.o
+ .riscv.attributes
+                0x000000000000da7e       0x1f sb.o
+ *fill*         0x000000000000da9d        0x3 
+ .data          0x000000000000daa0       0x14 sh.o
+ .bss           0x000000000000dab4        0x0 sh.o
+ .riscv.attributes
+                0x000000000000dab4       0x1f sh.o
+ .data          0x000000000000dad3        0x0 sieve.o
+ .bss           0x000000000000dad3        0x0 sieve.o
+ .rodata.str1.4
+                0x000000000000dad3       0x40 sieve.o
+ *fill*         0x000000000000dad3        0x1 
+ .sbss          0x000000000000dad4        0xc sieve.o
+ .comment       0x000000000000dae0       0x1c sieve.o
+ .riscv.attributes
+                0x000000000000dae0       0x21 sieve.o
+ *fill*         0x000000000000db01        0x3 
+ .data          0x000000000000db04        0x0 simple.o
+ .bss           0x000000000000db04        0x0 simple.o
+ .riscv.attributes
+                0x000000000000db04       0x1f simple.o
+ *fill*         0x000000000000db23        0x1 
+ .data          0x000000000000db24        0x0 sll.o
+ .bss           0x000000000000db24        0x0 sll.o
+ .riscv.attributes
+                0x000000000000db24       0x1f sll.o
+ *fill*         0x000000000000db43        0x1 
+ .data          0x000000000000db44        0x0 slli.o
+ .bss           0x000000000000db44        0x0 slli.o
+ .riscv.attributes
+                0x000000000000db44       0x1f slli.o
+ *fill*         0x000000000000db63        0x1 
+ .data          0x000000000000db64        0x0 slt.o
+ .bss           0x000000000000db64        0x0 slt.o
+ .riscv.attributes
+                0x000000000000db64       0x1f slt.o
+ *fill*         0x000000000000db83        0x1 
+ .data          0x000000000000db84        0x0 slti.o
+ .bss           0x000000000000db84        0x0 slti.o
+ .riscv.attributes
+                0x000000000000db84       0x1f slti.o
+ *fill*         0x000000000000dba3        0x1 
+ .data          0x000000000000dba4        0x0 sra.o
+ .bss           0x000000000000dba4        0x0 sra.o
+ .riscv.attributes
+                0x000000000000dba4       0x1f sra.o
+ *fill*         0x000000000000dbc3        0x1 
+ .data          0x000000000000dbc4        0x0 srai.o
+ .bss           0x000000000000dbc4        0x0 srai.o
+ .riscv.attributes
+                0x000000000000dbc4       0x1f srai.o
+ *fill*         0x000000000000dbe3        0x1 
+ .data          0x000000000000dbe4        0x0 srl.o
+ .bss           0x000000000000dbe4        0x0 srl.o
+ .riscv.attributes
+                0x000000000000dbe4       0x1f srl.o
+ *fill*         0x000000000000dc03        0x1 
+ .data          0x000000000000dc04        0x0 srli.o
+ .bss           0x000000000000dc04        0x0 srli.o
+ .riscv.attributes
+                0x000000000000dc04       0x1f srli.o
+ .data          0x000000000000dc23        0x0 start.o
+ .bss           0x000000000000dc23        0x0 start.o
+ .riscv.attributes
+                0x000000000000dc23       0x24 start.o
+ .data          0x000000000000dc47        0x0 stats.o
+ .bss           0x000000000000dc47        0x0 stats.o
+ .rodata.str1.4
+                0x000000000000dc47       0x3e stats.o
+ .comment       0x000000000000dc47       0x1c stats.o
+ .riscv.attributes
+                0x000000000000dc47       0x21 stats.o
+ .data          0x000000000000dc68        0x0 sub.o
+ .bss           0x000000000000dc68        0x0 sub.o
+ .riscv.attributes
+                0x000000000000dc68       0x1f sub.o
+ *fill*         0x000000000000dc87        0x1 
+ .data          0x000000000000dc88       0x28 sw.o
+ .bss           0x000000000000dcb0        0x0 sw.o
+ .riscv.attributes
+                0x000000000000dcb0       0x1f sw.o
+ *fill*         0x000000000000dccf        0x1 
+ .data          0x000000000000dcd0        0x0 xor.o
+ .bss           0x000000000000dcd0        0x0 xor.o
+ .riscv.attributes
+                0x000000000000dcd0       0x1f xor.o
+ *fill*         0x000000000000dcef        0x1 
+ .data          0x000000000000dcf0        0x0 xori.o
+ .bss           0x000000000000dcf0        0x0 xori.o
+ .riscv.attributes
+                0x000000000000dcf0       0x1f xori.o
+ .data          0x000000000000dd0f        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .bss           0x000000000000dd0f        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .comment       0x000000000000dd0f       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ *fill*         0x000000000000dd0f        0x1 
+ .eh_frame      0x000000000000dd10       0x68 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .riscv.attributes
+                0x000000000000dd78       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_divdi3.o)
+ .data          0x000000000000dd94        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .bss           0x000000000000dd94        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .comment       0x000000000000dd94       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .eh_frame      0x000000000000dd94       0x68 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .riscv.attributes
+                0x000000000000ddfc       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_moddi3.o)
+ .data          0x000000000000de18        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .bss           0x000000000000de18        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .comment       0x000000000000de18       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .eh_frame      0x000000000000de18       0x60 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x000000000000de78       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_udivdi3.o)
+ .data          0x000000000000de94        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .bss           0x000000000000de94        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .comment       0x000000000000de94       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .eh_frame      0x000000000000de94       0x64 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .riscv.attributes
+                0x000000000000def8       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_umoddi3.o)
+ .data          0x000000000000df14        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .bss           0x000000000000df14        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .riscv.attributes
+                0x000000000000df14       0x1a /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(muldi3.o)
+ .data          0x000000000000df2e        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .bss           0x000000000000df2e        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .comment       0x000000000000df2e       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .riscv.attributes
+                0x000000000000df2e       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(multi3.o)
+ .data          0x000000000000df4a        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .bss           0x000000000000df4a        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .riscv.attributes
+                0x000000000000df4a       0x1a /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(div.o)
+ .data          0x000000000000df64        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .bss           0x000000000000df64        0x0 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .rodata        0x000000000000df64      0x100 /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+                0x000000000000df64                __clz_tab
+ .comment       0x000000000000e064       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+ .riscv.attributes
+                0x000000000000e064       0x1c /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a(_clz.o)
+                0x000000000000e080                end = .
+                0x000000000000e080                . = ALIGN (0x4)
 LOAD start.o
 LOAD irq.o
 LOAD print.o
 LOAD hello.o
 LOAD sieve.o
 LOAD stats.o
+LOAD multest.o
+LOAD add.o
+LOAD addi.o
+LOAD and.o
+LOAD andi.o
+LOAD auipc.o
+LOAD beq.o
+LOAD bge.o
+LOAD bgeu.o
+LOAD blt.o
+LOAD bltu.o
+LOAD bne.o
+LOAD div.o
+LOAD divu.o
+LOAD hello.o
+LOAD irq.o
+LOAD j.o
+LOAD jal.o
+LOAD jalr.o
+LOAD lb.o
+LOAD lbu.o
+LOAD lh.o
+LOAD lhu.o
+LOAD lui.o
+LOAD lw.o
+LOAD mul.o
+LOAD mulh.o
+LOAD mulhsu.o
+LOAD mulhu.o
+LOAD multest.o
+LOAD or.o
+LOAD ori.o
+LOAD print.o
+LOAD rem.o
+LOAD remu.o
+LOAD sb.o
+LOAD sh.o
+LOAD sieve.o
+LOAD simple.o
+LOAD sll.o
+LOAD slli.o
+LOAD slt.o
+LOAD slti.o
+LOAD sra.o
+LOAD srai.o
+LOAD srl.o
+LOAD srli.o
+LOAD start.o
+LOAD stats.o
+LOAD sub.o
+LOAD sw.o
+LOAD xor.o
+LOAD xori.o
 LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
 OUTPUT(firmware.elf elf32-littleriscv)

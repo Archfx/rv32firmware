@@ -1,0 +1,107 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000100000 0x0000000000400000 xr
+RAM              0x0000000000000000 0x0000000000020000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x0000000000100000     0x1320
+                0x0000000000100000                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0000000000100000      0xa14 firmware.o
+                0x0000000000100000                flashio
+                0x0000000000100054                set_flash_qspi_flag
+                0x000000000010008c                set_flash_mode_spi
+                0x000000000010009e                set_flash_mode_dual
+                0x00000000001000b6                set_flash_mode_quad
+                0x00000000001000ce                set_flash_mode_qddr
+                0x00000000001000e6                enable_flash_crm
+                0x00000000001000f6                putchar
+                0x0000000000100116                print
+                0x0000000000100132                print_hex
+                0x0000000000100184                print_dec
+                0x00000000001003b4                getchar_prompt
+                0x0000000000100432                getchar
+                0x0000000000100436                cmd_print_spi_state
+                0x00000000001004ec                xorshift32
+                0x0000000000100508                cmd_memtest
+                0x00000000001005cc                cmd_read_flash_id
+                0x0000000000100626                cmd_read_flash_reg
+                0x0000000000100644                print_reg_bit
+                0x0000000000100692                cmd_read_flash_regs
+                0x000000000010081a                cmd_benchmark
+                0x0000000000100916                cmd_benchmark_all
+                0x00000000001009ea                cmd_echo
+ *fill*         0x0000000000100a14        0x0 
+ .text          0x0000000000100a14      0x122 start.o
+                0x0000000000100ab4                flashio_worker_begin
+                0x0000000000100b34                flashio_worker_end
+ *(.text*)
+ .text.startup  0x0000000000100b36      0x26c firmware.o
+                0x0000000000100b36                main
+ *(.rodata)
+ *fill*         0x0000000000100da2        0x2 
+ .rodata        0x0000000000100da4       0x9c firmware.o
+ *(.rodata*)
+ .rodata.str1.4
+                0x0000000000100e40      0x4de firmware.o
+                                        0x4e2 (size before relaxing)
+ *(.srodata)
+ *(.srodata*)
+                0x0000000000101320                . = ALIGN (0x4)
+ *fill*         0x000000000010131e        0x2 
+                0x0000000000101320                _etext = .
+                0x0000000000101320                _sidata = _etext
+
+.rela.dyn       0x0000000000101320        0x0
+ .rela.text     0x0000000000101320        0x0 firmware.o
+
+.data           0x0000000000000000        0x0 load address 0x0000000000101320
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _sdata = .
+                0x0000000000000000                _ram_start = .
+                0x0000000000000000                . = ALIGN (0x4)
+ *(.data)
+ .data          0x0000000000000000        0x0 firmware.o
+ .data          0x0000000000000000        0x0 start.o
+ *(.data*)
+ *(.sdata)
+ *(.sdata*)
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _edata = .
+
+.bss            0x0000000000000000        0x0 load address 0x0000000000101320
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _sbss = .
+ *(.bss)
+ .bss           0x0000000000000000        0x0 firmware.o
+ .bss           0x0000000000000000        0x0 start.o
+ *(.bss*)
+ *(.sbss)
+ *(.sbss*)
+ *(COMMON)
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _ebss = .
+
+.heap           0x0000000000000000        0x0
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _heap_start = .
+LOAD firmware.o
+LOAD start.o
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
+OUTPUT(firmware.elf elf32-littleriscv)
+
+.comment        0x0000000000000000       0x1b
+ .comment       0x0000000000000000       0x1b firmware.o
+                                         0x1c (size before relaxing)
+
+.riscv.attributes
+                0x0000000000000000       0x21
+ .riscv.attributes
+                0x0000000000000000       0x21 firmware.o
+ .riscv.attributes
+                0x0000000000000021       0x1f start.o

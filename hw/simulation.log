@@ -1,0 +1,5 @@
+VCD info: dumpfile testbench.vcd opened for output.
+RD: ADDR=00000000 DATA=0800400b INSN
+RD: ADDR=00000004 DATA=0600600b INSN
+Finished writing testbench.trace.
+testbench.v:51: $finish called at 1240000 (1ps)

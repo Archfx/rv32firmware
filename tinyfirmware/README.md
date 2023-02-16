@@ -81,11 +81,40 @@ cd rv32firmware/overview
 Now let's compile the code to get the binary. Detailed description about compiling the code is available [here](https://archfx.github.io/posts/2023/02/firmware1/)
 
 ```shell
+# get the object files from c
 $ riscv32-unknown-elf-gcc tiny.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
-
+# get the object file from assembly
 $ riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
-
+# link them
 $ riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o hello.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,hello.map,--strip-debug start.o tiny.o -lgcc
-
+# get the binary
 $ riscv32-unknown-elf-objcopy hello.elf -O binary firmware.bin
+# Convert to hex outside the docker
+python makehex.py firmware.bin 32768 > firmware.hex
 ```
+
+Function Addresses
+-------
+
+Let's look at the addresses assigned to each function during each stage
+
+in object files
+
+```shell
+$ riscv32-unknown-elf-nm tiny.o
+00000000 T main
+00000000 T print_str
+```
+Both main() and print_str() functions don't have addresses assigned yet.
+
+Now let's observe the function addresses after the linking process is completed
+
+```shell
+$ riscv32-unknown-elf-nm hello.elf 
+00000110 T end
+000000ce T main
+0000008e T print_str
+00000000 t reset_vec
+0000000a t start
+```
+Now we can observe that our functions now have valid addresses.

@@ -8,33 +8,33 @@ mem              0x0000000000000000 0x0000000000018000
 Linker script and memory map
 
 
-.memory         0x0000000000000000      0x110
+.memory         0x0000000000000000      0x108
                 0x0000000000000000                . = 0x0
  start*(.text)
- .text          0x0000000000000000       0x8e start.o
+ .text          0x0000000000000000       0x84 start.o
  *(.text)
- .text          0x000000000000008e       0x12 tiny.o
-                0x000000000000008e                print_str
+ .text          0x0000000000000084       0x12 tiny.o
+                0x0000000000000084                print_str
  *(*)
- .data          0x00000000000000a0        0x0 start.o
- .bss           0x00000000000000a0        0x0 start.o
+ .data          0x0000000000000096        0x0 start.o
+ .bss           0x0000000000000096        0x0 start.o
  .riscv.attributes
-                0x00000000000000a0       0x1f start.o
- .data          0x00000000000000bf        0x0 tiny.o
- .bss           0x00000000000000bf        0x0 tiny.o
- *fill*         0x00000000000000bf        0x1 
+                0x0000000000000096       0x1f start.o
+ .data          0x00000000000000b5        0x0 tiny.o
+ .bss           0x00000000000000b5        0x0 tiny.o
+ *fill*         0x00000000000000b5        0x3 
  .rodata.str1.4
-                0x00000000000000c0        0xd tiny.o
- *fill*         0x00000000000000cd        0x1 
- .text.startup  0x00000000000000ce        0x6 tiny.o
-                0x00000000000000ce                main
- .comment       0x00000000000000d4       0x1b tiny.o
+                0x00000000000000b8        0xd tiny.o
+ *fill*         0x00000000000000c5        0x1 
+ .text.startup  0x00000000000000c6        0x6 tiny.o
+                0x00000000000000c6                main
+ .comment       0x00000000000000cc       0x1b tiny.o
                                          0x1c (size before relaxing)
  .riscv.attributes
-                0x00000000000000ef       0x21 tiny.o
-                0x0000000000000110                end = .
-                0x0000000000000110                . = ALIGN (0x4)
- *fill*         0x0000000000000110        0x0 
+                0x00000000000000e7       0x21 tiny.o
+                0x0000000000000108                end = .
+                0x0000000000000108                . = ALIGN (0x4)
+ *fill*         0x0000000000000108        0x0 
 LOAD start.o
 LOAD tiny.o
 LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a

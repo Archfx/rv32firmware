@@ -1,20 +1,13 @@
 rv32firmware
 ========
 
-This is a simple tutorial based on the sample program provided for [picoRV processors](https://github.com/YosysHQ/picorv32) for beginners.
-
-Find the full post [here](https://archfx.github.io/posts/2023/02/firmware1/)
-
-Firmware at Bare metal
-=======
-
 In this tutorial, we are going to look at writing firmware for an embedded hardware device. This tutorial is solely focused on simulations. However, it can be synthesized to work on FPGAs.
 
 We are using the following setups,
 
-1. [picoRV](https://github.com/YosysHQ/picorv32) processor as the hardware 
-2. [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) to compile the firmware
-3. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) for simulation
+1. [picoRV](https://github.com/YosysHQ/picorv32) processor as the hardware.
+2. [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain) to compile the firmware.
+3. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) for simulation.
 
 
 Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly.
@@ -74,7 +67,7 @@ SECTIONS {
 
 ## Now let's start with the real deal by identifying each step
 
-clone the full version of the above code from GitHub. Contents related to this tutorial are available in the folder **overview** of the repository
+clone the full version of the above code from GitHub. Contents related to this tutorial are available in the folder `tutorial1` of the repository
 ```shell
 git clone https://github.com/Archfx/rv32firmware
 cd rv32firmware/overview
@@ -90,37 +83,41 @@ docker pull archfx/rv32i
 docker run -t -p 6080:6080 -v "${PWD}/:/rv32firmware" -w /rv32firmware --name rv32i archfx/rv32i
 ```
 
-This will get you to a docker container with the toolchain. Now all we got to do is compile the firmware
+This will get you to a docker container with the toolchain. Now, all we got to do is compile the firmware. Once you are in the docker container navigate to the `tutorial1/fw` folder. This contains all the firmware related files for our processor.
 
-Compiling the Code
+```shell
+docker exec -it rv32i /bin/bash
+cd rv32firmware/tutorial1/fw
+```
+
+Compiling the Firmware
 -------
 
 producing the output file
 
 1. compiling the c files to machine code
 ```shell
-/opt/riscv32i/bin/riscv32-unknown-elf-gcc *.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
+riscv32-unknown-elf-gcc *.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
 ```
 
 2. Compiling the assembly files to machine code
 ```shell
-/opt/riscv32i/bin/riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
+riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
 ```
 
 3. Using the linker to link with the machine code to a single program
 ```shell
-/opt/riscv32i/bin/riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o irq.o print.o hello.o sieve.o stats.o -lgcc
+riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o firmware.o -lgcc
 ```
 
 4. Generate the binary from .elf
 ```shell
-/opt/riscv32i/bin/riscv32-unknown-elf-objcopy firmware.elf -O binary firmware.bin
+riscv32-unknown-elf-objcopy firmware.elf -O binary firmware.bin
 ```
-
-Now outside the docker container, we can have to generate the binary file
-5. Generate the binary file
+For simulations, we need the hex file
+5. Generate the hex file
 ```shell
-python makehex.py firmware.bin 920 firmware.hex
+riscv32-unknown-elf-objcopy -O verilog firmware.elf firmware.hex
 ```
 
 
@@ -130,13 +127,12 @@ Simulating the Firmware in picoRV
 Here comes the fun part. Now we have the compiled firmware which can be run on the actual hardware. Instead, we are going to simulate the firmware on the hardware implementation as a simulation. For this, we are using Iverilog simulator. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) is an open-source compiled simulator, therefore this process involves two simple steps. First, we need to compile the hardware design combined with the firmware. Then run the compiled simulation. 
 
 
-1. Let's connect the firmware to the hardware implementation. For that will modify the test bench
+1. Let's connect the firmware to the hardware implementation. For that either we can modify the test bench or pass the firmware as a parameter for the compiled simulator (+firmware parameter in step 3).
 ```shell
 cd hw
 nano testbench.v
 ```
 and find the following lines on the test bench. Modify the firmware file location to the correct firmware that you just compiled.
-
 ```verilog
 	reg [1023:0] firmware_file;
 	initial begin
@@ -148,31 +144,27 @@ and find the following lines on the test bench. Modify the firmware file locatio
 
 2. Now let's simulate. First, we compile the design
 ```shell
- iverilog testbench.v picorv32.v  -o picorv.vvp
+ iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  `yosys-config --datdir/ice40/cells_sim.v`
 ```
 
 3. Finally, run the simulation
 ```shell
-vvp picorv.vvp +vcd +trace
+vvp -N ice.vvp ../fw/firmware.hex +firmware=../fw/firmware.hex
 ```
 
 This will produce the below output in the terminal
 ```shell
 VCD info: dumpfile testbench.vcd opened for output.
-RD: ADDR=00000000 DATA=0800400b INSN
-RD: ADDR=00000004 DATA=0600600b INSN
-RD: ADDR=00000008 DATA=0013a6e9 INSN
-RD: ADDR=00000010 DATA=0200a10b INSN
-RD: ADDR=00000014 DATA=0201218b INSN
-RD: ADDR=00000018 DATA=15200093 INSN
-RD: ADDR=0000001c DATA=0000410b INSN
-RD: ADDR=00000020 DATA=0020a023 INSN
-RD: ADDR=00000024 DATA=0001410b INSN
-WR: ADDR=00000150 DATA=00000008 STRB=1111
-Finished writing testbench.trace.
-testbench.v:51: $finish called at 83240000 (1ps)
+0000000
++50000 cycles
++50000 cycles
++50000 cycles
++50000 cycles
++50000 cycles
++50000 cycles
+icebreaker_tb.v:37: $finish called at 3000000000 (1ps)
 ```
 
 You can observe the internal signal patterns by looking at the testbench.trace and testbench.vcd files.
 
-In the next post let us look at how to write firmware in a detailed manner. 
+In the next post let us look at how to write firmware in a detailed manner.  
