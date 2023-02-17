@@ -167,4 +167,6 @@ icebreaker_tb.v:37: $finish called at 3000000000 (1ps)
 
 You can observe the internal signal patterns by looking at the testbench.trace and testbench.vcd files.
 
+
+
 In the next post let us look at how to write firmware in a detailed manner.  
