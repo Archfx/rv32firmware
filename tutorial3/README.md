@@ -72,3 +72,4 @@ Summary of the above memory layout is as below,
 | FLASH       | 0x00100000       | 512Kb |
 | RAM         | 0x00000000       | 16Kb  |
 
+This information should be extracted from your hardware specification. For the picoRV processor-based SoC above information can be found from [here](https://github.com/YosysHQ/picorv32/tree/master/picosoc).
