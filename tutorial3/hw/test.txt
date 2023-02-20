@@ -1,9 +1,0 @@
-VCD info: dumpfile testbench.vcd opened for output.
-0000000
-+50000 cycles
-+50000 cycles
-+50000 cycles
-+50000 cycles
-+50000 cycles
-+50000 cycles
-icebreaker_tb.v:37: $finish called at 3000000000 (1ps)
