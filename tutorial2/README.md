@@ -138,7 +138,7 @@ Now we can observe that our functions now have valid addresses.
 Simulation
 --------
 
-Now let's see whether our firmware is working. For that we will simulate the processor with the firmware that we just compiled. Detailed description about compiling the code is available [here](https://archfx.github.io/posts/2023/02/firmware1/).
+Now let's see whether our firmware is working. For that, we will simulate the processor with the firmware that we just compiled. A detailed description of compiling the code is available [here](https://archfx.github.io/posts/2023/02/firmware1/).
 
 ```shell
 $ cd ../hw #Navigate to hw folder
