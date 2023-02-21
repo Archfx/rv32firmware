@@ -74,8 +74,8 @@ Next from the bootloader, we need to set the program counter to the app starting
 
 static void start_app(uint32_t pc, uint32_t sp) __attribute__((naked)) {
     __asm("           \n\
-          li x2, r1 /* load r1 into SP */\n\
-          jr r0       /* jump to the address at r0 */\n\
+          la x2, a1 /* load a1 into SP */\n\
+          jr a0       /* jump to the address at a0 */\n\
     ");
 }
 
