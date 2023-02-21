@@ -10,7 +10,7 @@ We are using the following setups,
 3. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) for simulation.
 
 
-Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly. Following diagram shows how things get connected in the precess of producing the final binary.
+Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly. The following diagram shows how things get connected in the process of producing the final binary.
 
 ```mermaid
     stateDiagram-v2

@@ -74,9 +74,9 @@ Summary of the above memory layout is as below,
 
 This information should be extracted from your hardware specification. For the picoRV processor-based SoC above information can be found [here](https://github.com/YosysHQ/picorv32/tree/master/picosoc).
 
-More details about Linker script command syntaxes are available in [binutils](https://sourceware.org/binutils/docs/ld/MEMORY.html#:~:text=The%20syntax%20for%20MEMORY%20is,outside%20of%20the%20linker%20script.)
+More details about Linker script command syntaxes are available in [binutils](https://sourceware.org/binutils/docs/ld/MEMORY.html#:~:text=The%20syntax%20for%20MEMORY%20is,outside%20of%20the%20linker%20script.).
 
-General syntax for writing the memory layout is as follows,
+The general syntax for writing the memory layout is as follows,
 
 ```shell
 MEMORY
@@ -90,4 +90,119 @@ MEMORY
 Sections
 ------
 
-Next, we have to define sections. The intention is to separate the code from data and put them in contiguous areas of memory.
+Next, we have to define sections. The intention is to separate the code from data and put them in contiguous areas of memory. Usually, there is no correct way of naming each of the sections. But as the [best practice](https://refspecs.linuxbase.org/elf/elf.pdf) sections are named as follows,
+
+1. `.text` for code and constants
+2. `.bss` for uninitialized data
+3. `.stack` or `.heap` for our stack/heap
+5. `.data` for initialized data 
+
+### Empty Section
+
+Let's start with an empty section as follows,
+
+```shell
+MEMORY
+{
+    FLASH (rx) : ORIGIN = 0x00100000, LENGTH = 0x400000
+    RAM (xrw) : ORIGIN = 0x00000000, LENGTH = 0x20000
+}
+SECTIONS {
+    /* empty! */
+}
+```
+
+This will throw a bunch of errors about missing references for the functions in the `start.s` file. Let's perform an `object_dump` on the object files of both the assembly file and the c code to see the available sections. 
+
+```shell
+$ riscv32-unknown-elf-objdump -h start.o 
+
+start.o:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000011c  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000150  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000150  2**0
+                  ALLOC
+  3 .riscv.attributes 0000001f  00000000  00000000  00000150  2**0
+                  CONTENTS, READONLY
+```
+
+```shell
+$ riscv32-unknown-elf-objdump -h firmware.o
+
+firmware.o:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000048  00000000  00000000  00000034  2**1
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  0000007c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  0000007c  2**0
+                  ALLOC
+  3 .rodata.str1.4 0000000d  00000000  00000000  0000007c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .text.startup 0000001a  00000000  00000000  0000008a  2**1
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  5 .comment      0000001c  00000000  00000000  000000a4  2**0
+                  CONTENTS, READONLY
+  6 .riscv.attributes 00000021  00000000  00000000  000000c0  2**0
+                  CONTENTS, READONLY
+```
+
+
+Now let's connect the dots with SECTIONS part of the original linker file that we had.
+
+```c
+SECTIONS {
+    .text :
+    {
+        . = ALIGN(4);
+        *(.text)
+        *(.text*)
+        *(.rodata)
+        *(.rodata*)
+        *(.srodata)
+        *(.srodata*)
+        . = ALIGN(4);
+        _etext = .;
+        _sidata = _etext;
+    } >FLASH
+    .data : AT ( _sidata )
+    {
+        . = ALIGN(4);
+        _sdata = .;
+        _ram_start = .;
+        . = ALIGN(4);
+        *(.data)
+        *(.data*)
+        *(.sdata)
+        *(.sdata*)
+        . = ALIGN(4);
+        _edata = .;
+    } >RAM
+    .bss :
+    {
+        . = ALIGN(4);
+        _sbss = .;
+        *(.bss)
+        *(.bss*)
+        *(.sbss)
+        *(.sbss*)
+        *(COMMON)
+        . = ALIGN(4);
+        _ebss = .;
+    } >RAM
+    .heap :
+    {
+        . = ALIGN(4);
+        _heap_start = .;
+    } >RAM
+}
+```
+
+More information is available at [bitutils](https://sourceware.org/binutils/docs/ld/).
