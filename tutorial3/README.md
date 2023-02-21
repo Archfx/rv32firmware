@@ -47,7 +47,7 @@ Linker Script Components
 
 There are four components that we need to identify when talking about the Linker script
 
-1. Memory Layout - How much memory is available on our hardware. Where we can find this memory?
+1. Memory Layout - How much memory is available on our hardware? Where we can find this memory?
 2. Section Definition - Where should the compiler place the functions and methods with uninitialized addresses
 3. Options - Specify entry points and architecture-related information
 4. Symbols - Link time variable that should be introduced to the program
@@ -56,7 +56,7 @@ There are four components that we need to identify when talking about the Linker
 Memory Layout
 -------
 
-Let's look at the memory layout that we had in the [tutorial2](https://archfx.github.io/posts/2023/02/firmware2/).
+Let's look at the memory layout that we had in [tutorial2](https://archfx.github.io/posts/2023/02/firmware2/).
 ```c
 MEMORY
 {
@@ -72,4 +72,22 @@ Summary of the above memory layout is as below,
 | FLASH       | 0x00100000       | 512Kb |
 | RAM         | 0x00000000       | 16Kb  |
 
-This information should be extracted from your hardware specification. For the picoRV processor-based SoC above information can be found from [here](https://github.com/YosysHQ/picorv32/tree/master/picosoc).
+This information should be extracted from your hardware specification. For the picoRV processor-based SoC above information can be found [here](https://github.com/YosysHQ/picorv32/tree/master/picosoc).
+
+More details about Linker script command syntaxes are available in [binutils](https://sourceware.org/binutils/docs/ld/MEMORY.html#:~:text=The%20syntax%20for%20MEMORY%20is,outside%20of%20the%20linker%20script.)
+
+General syntax for writing the memory layout is as follows,
+
+```shell
+MEMORY
+  {
+    name [(attr)] : ORIGIN = origin, LENGTH = len
+    …
+  }
+```
+"name" attribute does not carry any meaning outside the linker script. attributes string should contain the following characters `r` (read only), `w` (read/write section), `x` (executable section), `a` (allocatable section), `i/l` (initialized section) or `!` with any of the above attributes to sense the invert.
+
+Sections
+------
+
+Next, we have to define sections. The intention is to separate the code from data and put them in contiguous areas of memory.
