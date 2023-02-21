@@ -10,30 +10,25 @@ We are using the following setups,
 3. [Iverilog](https://iverilog.fandom.com/wiki/Main_Page) for simulation.
 
 
-Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly.
+Firmware is usually written with c and assembly. Additionally, a program needs to have a memory map so that it can map the firmware to the correct places to start the boot process properly. Following diagram shows how things get connected in the precess of producing the final binary.
 
 ```mermaid
-classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
-      }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+    stateDiagram-v2
+    direction LR
+        State1 : Source files written in c (*.c)
+	State2 : Source files written in assembly (*.s)
+	State3 : Object file (*.o)
+	
+	State4 : Linker script (.lds)
+	State5 : elf file
+	State6 : Binary or Hex file
+	
+        State1 --> State3
+	State2 --> State3
+	State3 --> State5
+	State4 --> State5
+	State5 --> State6
+
 ```
 
 sample c program to run on our setup
