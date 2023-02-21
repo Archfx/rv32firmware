@@ -14,30 +14,31 @@ Linker script and memory map
                 0x0000000000104000                __approm_start__ = ORIGIN (APPROM)
                 0x00000000003fc000                __approm_size__ = LENGTH (APPROM)
 
-.text           0x0000000000104000      0x120
+.text           0x0000000000104000      0x118
                 0x0000000000104000                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000000104000      0x102 start.o
                 0x0000000000104080                flashio_worker_begin
                 0x0000000000104100                flashio_worker_end
- .text          0x0000000000104102        0xa bootloader.o
+ .text          0x0000000000104102        0x0 bootloader.o
  *(.text*)
- .text.startup  0x000000000010410c       0x14 bootloader.o
-                0x000000000010410c                main
+ .text.startup  0x0000000000104102       0x14 bootloader.o
+                0x0000000000104102                main
  *(.rodata)
  *(.rodata*)
  *(.srodata)
  *(.srodata*)
-                0x0000000000104120                . = ALIGN (0x4)
-                0x0000000000104120                _etext = .
-                0x0000000000104120                _sidata = _etext
+                0x0000000000104118                . = ALIGN (0x4)
+ *fill*         0x0000000000104116        0x2 
+                0x0000000000104118                _etext = .
+                0x0000000000104118                _sidata = _etext
 
-.rela.dyn       0x0000000000104120        0x0
- .rela.text     0x0000000000104120        0x0 start.o
+.rela.dyn       0x0000000000104118        0x0
+ .rela.text     0x0000000000104118        0x0 start.o
  .rela.text.startup
-                0x0000000000104120        0x0 start.o
+                0x0000000000104118        0x0 start.o
 
-.data           0x0000000000000000        0x0 load address 0x0000000000104120
+.data           0x0000000000000000        0x0 load address 0x0000000000104118
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sdata = .
                 0x0000000000000000                _ram_start = .
@@ -51,7 +52,7 @@ Linker script and memory map
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _edata = .
 
-.bss            0x0000000000000000        0x0 load address 0x0000000000104120
+.bss            0x0000000000000000        0x0 load address 0x0000000000104118
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sbss = .
  *(.bss)
