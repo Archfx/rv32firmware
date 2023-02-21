@@ -74,8 +74,8 @@ Next from the bootloader, we need to set the program counter to the app starting
 
 static void start_app(uint32_t pc, uint32_t sp) __attribute__((naked)) {
     __asm("           \n\
-          li x2, r1 /* load r1 into MSP */\n\
-          jal r0       /* branch to the address at r0 */\n\
+          li x2, r1 /* load r1 into SP */\n\
+          jr r0       /* jump to the address at r0 */\n\
     ");
 }
 
@@ -90,3 +90,24 @@ int main(void) {
 
 ```
 
+### Compile Bootloader
+
+Next, we compile the bootloader and app separately. Let's compile the bootloader first.
+
+```shell
+riscv32-unknown-elf-gcc bootloader.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
+
+riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
+
+riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o bootloader.o -lgcc
+
+```
+Then let's compile the firmware. For this, we can use the simple firmware that we used in [tutorial2](https://archfx.github.io/posts/2023/02/firmware2/) 
+```shell
+riscv32-unknown-elf-gcc firmware.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
+
+riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
+
+riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o firmware.o -lgcc
+
+```
