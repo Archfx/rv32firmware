@@ -155,7 +155,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
 ```
 
 
-Now let's connect the dots with SECTIONS part of the original linker file that we had. Note that picoRV reads by a 4-byte boundary. Therefore, we need to align all the sections to bad the remaining space until it completes the 4-byte boundary (`ALIGN(4)`). 
+Now let's connect the dots with SECTIONS part of the original linker file that we had. Note that picoRV reads by a 4-byte boundary. Therefore, we need to align all the sections to pad the remaining space until it completes the 4-byte boundary (`ALIGN(4)`). 
 
 
 
