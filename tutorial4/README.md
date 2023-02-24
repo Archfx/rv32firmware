@@ -183,7 +183,7 @@ $ cat boot.hex app.hex > bootapp.hex
 
 You can find all the code related to this tutorial in `tutorial4` folder of the following GitHub repository.
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=Archfx&show_owner&repo=rv32firmware)](https://github.com/Archfx/rv32firmware)
+[![Archfx/rv32firmware - GitHub](https://gh-card.dev/repos/Archfx/rv32firmware.svg?fullname=)](https://github.com/Archfx/rv32firmware)
 
 
 ### Simulate
