@@ -1,7 +1,4 @@
-
-
 .section .text
-
 
 start:
 

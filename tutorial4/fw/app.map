@@ -1,0 +1,88 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+BOOTROM          0x0000000000100000 0x0000000000004000 xr
+APPROM           0x0000000000104000 0x00000000003fc000 xr
+RAM              0x0000000000000000 0x0000000000020000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000100000                __bootrom_start__ = ORIGIN (BOOTROM)
+                0x0000000000004000                __bootrom_size__ = LENGTH (BOOTROM)
+                0x0000000000104000                __approm_start__ = ORIGIN (APPROM)
+                0x00000000003fc000                __approm_size__ = LENGTH (APPROM)
+
+.text           0x0000000000104000      0x164
+                0x0000000000104000                . = ALIGN (0x4)
+ *(.text)
+ .text          0x0000000000104000      0x102 start.o
+                0x0000000000104080                flashio_worker_begin
+                0x0000000000104100                flashio_worker_end
+ .text          0x0000000000104102       0x3c app.o
+                0x0000000000104102                putchar
+                0x0000000000104122                print_str
+ *(.text*)
+ .text.startup  0x000000000010413e       0x14 app.o
+                0x000000000010413e                main
+ *(.rodata)
+ *(.rodata*)
+ *fill*         0x0000000000104152        0x2 
+ .rodata.str1.4
+                0x0000000000104154        0xd app.o
+ *(.srodata)
+ *(.srodata*)
+                0x0000000000104164                . = ALIGN (0x4)
+ *fill*         0x0000000000104161        0x3 
+                0x0000000000104164                _etext = .
+                0x0000000000104164                _sidata = _etext
+
+.rela.dyn       0x0000000000104164        0x0
+ .rela.text     0x0000000000104164        0x0 start.o
+
+.data           0x0000000000000000        0x0 load address 0x0000000000104164
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _sdata = .
+                0x0000000000000000                _ram_start = .
+                0x0000000000000000                . = ALIGN (0x4)
+ *(.data)
+ .data          0x0000000000000000        0x0 start.o
+ .data          0x0000000000000000        0x0 app.o
+ *(.data*)
+ *(.sdata)
+ *(.sdata*)
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _edata = .
+
+.bss            0x0000000000000000        0x0 load address 0x0000000000104164
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _sbss = .
+ *(.bss)
+ .bss           0x0000000000000000        0x0 start.o
+ .bss           0x0000000000000000        0x0 app.o
+ *(.bss*)
+ *(.sbss)
+ *(.sbss*)
+ *(COMMON)
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _ebss = .
+
+.heap           0x0000000000000000        0x0
+                0x0000000000000000                . = ALIGN (0x4)
+                0x0000000000000000                _heap_start = .
+LOAD start.o
+LOAD app.o
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
+OUTPUT(app.elf elf32-littleriscv)
+
+.riscv.attributes
+                0x0000000000000000       0x21
+ .riscv.attributes
+                0x0000000000000000       0x1f start.o
+ .riscv.attributes
+                0x000000000000001f       0x21 app.o
+
+.comment        0x0000000000000000       0x1b
+ .comment       0x0000000000000000       0x1b app.o
+                                         0x1c (size before relaxing)

@@ -14,60 +14,68 @@ Linker script and memory map
                 0x0000000000104000                __approm_start__ = ORIGIN (APPROM)
                 0x00000000003fc000                __approm_size__ = LENGTH (APPROM)
 
-.text           0x0000000000104000       0x60
-                0x0000000000104000                . = ALIGN (0x4)
+.text           0x0000000000100000      0x184
+                0x0000000000100000                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000104000       0x3c firmware.o
-                0x0000000000104000                putchar
-                0x0000000000104020                print_str
+ .text          0x0000000000100000        0x0 boot.o
+ .text          0x0000000000100000      0x102 start.o
+                0x0000000000100080                flashio_worker_begin
+                0x0000000000100100                flashio_worker_end
  *(.text*)
- .text.startup  0x000000000010403c       0x14 firmware.o
-                0x000000000010403c                main
+ .text.startup  0x0000000000100102       0x80 boot.o
+                0x0000000000100102                main
  *(.rodata)
  *(.rodata*)
- *fill*         0x0000000000104050        0x0 
- .rodata.str1.4
-                0x0000000000104050        0xd firmware.o
  *(.srodata)
  *(.srodata*)
-                0x0000000000104060                . = ALIGN (0x4)
- *fill*         0x000000000010405d        0x3 
-                0x0000000000104060                _etext = .
-                0x0000000000104060                _sidata = _etext
+                0x0000000000100184                . = ALIGN (0x4)
+ *fill*         0x0000000000100182        0x2 
+                0x0000000000100184                _etext = .
+                0x0000000000100184                _sidata = _etext
 
-.data           0x0000000000000000        0x0 load address 0x0000000000104060
+.rela.dyn       0x0000000000100184        0x0
+ .rela.text.startup
+                0x0000000000100184        0x0 boot.o
+ .rela.text     0x0000000000100184        0x0 boot.o
+
+.data           0x0000000000000000        0x0 load address 0x0000000000100184
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sdata = .
                 0x0000000000000000                _ram_start = .
                 0x0000000000000000                . = ALIGN (0x4)
  *(.data)
- .data          0x0000000000000000        0x0 firmware.o
+ .data          0x0000000000000000        0x0 boot.o
+ .data          0x0000000000000000        0x0 start.o
  *(.data*)
  *(.sdata)
  *(.sdata*)
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _edata = .
 
-.bss            0x0000000000000000        0x0 load address 0x0000000000104060
+.bss            0x0000000000000000        0x0 load address 0x0000000000100184
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sbss = .
  *(.bss)
- .bss           0x0000000000000000        0x0 firmware.o
+ .bss           0x0000000000000000        0x0 boot.o
+ .bss           0x0000000000000000        0x0 start.o
  *(.bss*)
  *(.sbss)
  *(.sbss*)
  *(COMMON)
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _ebss = .
-LOAD firmware.o
+LOAD boot.o
+LOAD start.o
 LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
-OUTPUT(firmware.elf elf32-littleriscv)
+OUTPUT(boot.elf elf32-littleriscv)
 
 .comment        0x0000000000000000       0x1b
- .comment       0x0000000000000000       0x1b firmware.o
+ .comment       0x0000000000000000       0x1b boot.o
                                          0x1c (size before relaxing)
 
 .riscv.attributes
                 0x0000000000000000       0x21
  .riscv.attributes
-                0x0000000000000000       0x21 firmware.o
+                0x0000000000000000       0x21 boot.o
+ .riscv.attributes
+                0x0000000000000021       0x1f start.o

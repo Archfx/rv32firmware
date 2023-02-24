@@ -99,15 +99,25 @@ riscv32-unknown-elf-gcc bootloader.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 
 
 riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
 
-riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o bootloader.o -lgcc
+riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o boot.elf -Wl,--build-id=none,-Bstatic,-T,boot.lds,-Map,boot.map,--strip-debug bootloader.o start.o -lgcc
 
 ```
-Then let's compile the firmware. For this, we can use the simple firmware that we used in [tutorial2](https://archfx.github.io/posts/2023/02/firmware2/) 
+Then let's compile the application. For this, we can use the simple firmware that we used in [tutorial2](https://archfx.github.io/posts/2023/02/firmware2/) 
 ```shell
-riscv32-unknown-elf-gcc firmware.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
+riscv32-unknown-elf-gcc bootload-app.c -c -mabi=ilp32 -march=rv32ic -Os --std=c99 -ffreestanding -nostdlib
 
 riscv32-unknown-elf-gcc start.S -c -mabi=ilp32 -march=rv32ic -o start.o
 
-riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o firmware.elf -Wl,--build-id=none,-Bstatic,-T,sections.lds,-Map,firmware.map,--strip-debug start.o firmware.o -lgcc
+riscv32-unknown-elf-gcc -Os -mabi=ilp32 -march=rv32imc -ffreestanding -nostdlib -o app.elf -Wl,--build-id=none,-Bstatic,-T,app.lds,-Map,app.map,--strip-debug bootload-app.o start.o -lgcc
 
+```
+
+Next, we have to combine the two elf files into one bin/hex file. For that we use `objcopy`.
+
+```shell
+riscv32-unknown-elf-objcopy boot.elf --pad-to=0x4000 --gap-fill=0xFF -O verilog  boot.hex
+
+riscv32-unknown-elf-objcopy firmware.elf -O verilog  firmware.hex
+
+cat bootloader-16.hex firmware.hex > bootv.hex
 ```
