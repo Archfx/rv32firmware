@@ -90,6 +90,8 @@ int main(void) {
 
 ```
 
+More information about writing assembly with c can be found from [Extended-Asm](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html).
+
 ### Compile Bootloader
 
 Next, we compile the bootloader and app separately. Let's compile the bootloader first.

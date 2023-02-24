@@ -14,27 +14,27 @@ Linker script and memory map
                 0x0000000000104000                __approm_start__ = ORIGIN (APPROM)
                 0x00000000003fc000                __approm_size__ = LENGTH (APPROM)
 
-.text           0x0000000000100000       0x40
+.text           0x0000000000100000       0x3c
                 0x0000000000100000                . = ALIGN (0x4)
  *(.text)
- .text          0x0000000000100000        0x6 boot.o
+ .text          0x0000000000100000        0x0 boot.o
  *(.text*)
- .text.startup  0x0000000000100006       0x38 boot.o
-                0x0000000000100006                main
+ .text.startup  0x0000000000100000       0x3c boot.o
+                0x0000000000100000                main
  *(.rodata)
  *(.rodata*)
  *(.srodata)
  *(.srodata*)
-                0x0000000000100040                . = ALIGN (0x4)
- *fill*         0x000000000010003e        0x2 
-                0x0000000000100040                _etext = .
-                0x0000000000100040                _sidata = _etext
+                0x000000000010003c                . = ALIGN (0x4)
+ *fill*         0x000000000010003c        0x0 
+                0x000000000010003c                _etext = .
+                0x000000000010003c                _sidata = _etext
 
-.rela.dyn       0x0000000000100040        0x0
+.rela.dyn       0x000000000010003c        0x0
  .rela.text.startup
-                0x0000000000100040        0x0 boot.o
+                0x000000000010003c        0x0 boot.o
 
-.data           0x0000000000000000        0x0 load address 0x0000000000100040
+.data           0x0000000000000000        0x0 load address 0x000000000010003c
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sdata = .
                 0x0000000000000000                _ram_start = .
@@ -47,7 +47,7 @@ Linker script and memory map
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _edata = .
 
-.bss            0x0000000000000000        0x0 load address 0x0000000000100040
+.bss            0x0000000000000000        0x0 load address 0x000000000010003c
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                _sbss = .
  *(.bss)

@@ -6,8 +6,8 @@ static void start_app(uint32_t pc) __attribute__((naked));
 
 static void start_app(uint32_t pc)  {
 
-    (*(volatile uint32_t*)0x02000008) = pc;
-    __asm__ ("jal ra, %[pc]" : [pc] "=rm" (pc));
+    // (*(volatile uint32_t*)0x02000008) = pc;
+    __asm__ ("jal ra, %A[pc]" : [pc] "+r" (pc));
 
 }
 
@@ -64,7 +64,7 @@ int main(void) {
   // __asm__ ("jal ra, %0" : "=r"(app_start_1));
  
   // __asm__ ("lui sp, 0x104000");
-  // __asm__ ("jal ra, 0x00104000"); /// Working
+  __asm__ ("jal ra, 0x00104000"); /// Working
 
   // __asm__ volatile ("lui sp, 0x11" );
   // __asm__ volatile ("jal ra, 0x41" );
