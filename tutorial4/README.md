@@ -49,6 +49,7 @@ extern int __approm_size__;
 
 ### Bootloader Code
 
+Let's create a simple c program for the bootloader. In order to visually see our bootloader is working we can add some print statements to the UART. In this case, we have added the characters of the word `Boot`.
 
 ```c
 /* boot.c */
@@ -189,7 +190,7 @@ You can find all the code related to this tutorial in `tutorial4` folder of the 
 
 Now, let's see our bootloader in action.
 
-Compile the hardware in the hw folder.
+Compile the hardware in the `hw` folder.
 
 ```shell
 iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  `yosys-config --datdir/ice40/cells_sim.v`
