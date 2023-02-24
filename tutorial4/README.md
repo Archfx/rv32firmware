@@ -1,7 +1,7 @@
 Bootloader at Home?
 ========
 
-So far we looked at implementing firmware for bare metal use cases. But you may have seen that in most of the hardware SDK's they suggest you use a bootloader to load your programs.
+So far we looked at implementing firmware for bare metal use cases. But you may have seen that in most of the hardware SDK's, they suggest using a bootloader to load your programs.
 
 - [atmega328p bootloader](https://www.circuito.io/blog/atmega328p-bootloader/)
 - [STM32 bootloader](https://akospasztor.github.io/stm32-bootloader/)
