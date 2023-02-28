@@ -131,7 +131,7 @@ SECTIONS {
 
 ### Application code
 
-Now for the application side, we need to create a seperate Linker Script. For that, we can copy the same Linker script and replace `>rom` with `>APPROM`.
+Now for the application side, we need to create a separate Linker Script. For that, we can copy the same Linker script and replace `>rom` with `>APPROM`.
 ```c
 /* app.lds */
 INCLUDE memory_map.lds
@@ -229,4 +229,4 @@ Serial data:  10
 icebreaker_tb.v:37: $finish called at 3000000000 (1ps)
 ```
 
-Wallah! We have successfully created a bootloader at home!. In future tutorials, we will discuss how to do more bootloader stuff with our simple bootloader.
+Wallah! We have successfully created a bootloader at home! In future tutorials, we will discuss how to do more bootloader stuff with our simple bootloader.
