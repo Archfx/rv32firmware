@@ -98,14 +98,14 @@ Setting up the toolchain
 Instead of setting up the toolchain in your local machine you can use the following docker container and mount the firmware directory to it
 
 ```shell
-docker pull archfx/rv32i
-docker run -t -p 6080:6080 -v "${PWD}/:/rv32firmware" -w /rv32firmware --name rv32i archfx/rv32i
+docker pull archfx/rvutils
+docker run -t -p 6080:6080 -v "${PWD}/:/rv32firmware" -w /rv32firmware --name rvutils archfx/rvutils
 ```
 
 This will get you to a docker container with the toolchain. Now, all we got to do is compile the firmware. Once you are in the docker container navigate to the `tutorial1/fw` folder. This contains all the firmware related files for our processor.
 
 ```shell
-docker exec -it rv32i /bin/bash
+docker exec -it rvutils /bin/bash
 cd rv32firmware/tutorial1/fw
 ```
 
