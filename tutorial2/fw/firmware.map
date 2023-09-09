@@ -68,7 +68,7 @@ Linker script and memory map
                 0x0000000000000000                _heap_start = .
 LOAD start.o
 LOAD firmware.o
-LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/12.2.0/libgcc.a
+LOAD /opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/libgcc.a
 OUTPUT(firmware.elf elf32-littleriscv)
 
 .riscv.attributes

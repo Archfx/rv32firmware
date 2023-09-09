@@ -381,41 +381,7 @@ uint32_t cmd_benchmark(bool verbose, uint32_t *instns_p)
 
 
 
-void cmd_benchmark_all()
-{
-	uint32_t instns = 0;
 
-	print("default   ");
-	set_flash_mode_spi();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-	print("dual      ");
-	set_flash_mode_dual();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-	print("quad      ");
-	set_flash_mode_quad();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-	print("quad-crm  ");
-	enable_flash_crm();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-	print("qddr      ");
-	set_flash_mode_qddr();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-	print("qddr-crm  ");
-	enable_flash_crm();
-	print_hex(cmd_benchmark(false, &instns), 8);
-	putchar('\n');
-
-}
 
 
 void cmd_echo()
@@ -435,7 +401,6 @@ void main()
 	print("Booting..\n");
 
 	reg_leds = 63;
-	set_flash_qspi_flag();
 
 	reg_leds = 127;
 	while (getchar_prompt("Press ENTER to continue..\n") != '\r') { /* wait */ }
@@ -458,78 +423,4 @@ void main()
 
 	cmd_print_spi_state();
 	print("\n");
-
-	while (1)
-	{
-		print("\n");
-
-		print("Select an action:\n");
-		print("\n");
-		print("   [1] Read SPI Flash ID\n");
-		print("   [2] Read SPI Config Regs\n");
-		print("   [3] Switch to default mode\n");
-		print("   [4] Switch to Dual I/O mode\n");
-		print("   [5] Switch to Quad I/O mode\n");
-		print("   [6] Switch to Quad DDR mode\n");
-		print("   [7] Toggle continuous read mode\n");
-		print("   [9] Run simplistic benchmark\n");
-		print("   [0] Benchmark all configs\n");
-		print("   [M] Run Memtest\n");
-		print("   [S] Print SPI state\n");
-		print("   [e] Echo UART\n");
-		print("\n");
-
-		for (int rep = 10; rep > 0; rep--)
-		{
-			print("Command> ");
-			char cmd = getchar();
-			if (cmd > 32 && cmd < 127)
-				putchar(cmd);
-			print("\n");
-
-			switch (cmd)
-			{
-			case '1':
-				cmd_read_flash_id();
-				break;
-			case '2':
-				cmd_read_flash_regs();
-				break;
-			case '3':
-				set_flash_mode_spi();
-				break;
-			case '4':
-				set_flash_mode_dual();
-				break;
-			case '5':
-				set_flash_mode_quad();
-				break;
-			case '6':
-				set_flash_mode_qddr();
-				break;
-			case '7':
-				reg_spictrl = reg_spictrl ^ 0x00100000;
-				break;
-			case '9':
-				cmd_benchmark(true, 0);
-				break;
-			case '0':
-				cmd_benchmark_all();
-				break;
-			case 'M':
-				cmd_memtest();
-				break;
-			case 'S':
-				cmd_print_spi_state();
-				break;
-			case 'e':
-				cmd_echo();
-				break;
-			default:
-				continue;
-			}
-
-			break;
-		}
-	}
 }
