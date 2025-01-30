@@ -142,7 +142,7 @@ Now let's see whether our firmware is working. For that we will simulate the pro
 
 ```shell
 $ cd ../hw #Navigate to hw folder
-$ iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  `yosys-config --datdir/ice40/cells_sim.v` # complile the hardware
+$ iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  cells_sim.v # complile the hardware
 $ vvp -N ice.vvp ../fw/firmware.hex +firmware=../fw/firmware.hex # run the simulation
 ```
 

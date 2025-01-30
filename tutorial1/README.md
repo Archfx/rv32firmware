@@ -163,7 +163,7 @@ and find the following lines on the test bench. Modify the firmware file locatio
 
 2. Now let's simulate. First, we compile the design
 ```shell
- iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  `yosys-config --datdir/ice40/cells_sim.v`
+ iverilog -s testbench -o ice.vvp  icebreaker_tb.v icebreaker.v ice40up5k_spram.v spimemio.v simpleuart.v picosoc.v picorv32.v spiflash.v -DNO_ICE40_DEFAULT_ASSIGNMENTS  cells_sim.v
 ```
 
 3. Finally, run the simulation
